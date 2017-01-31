@@ -16,3 +16,9 @@ install:
 	cp pinata-build-sshd.sh $(BINDIR)/pinata-build-sshd
 	cp pinata-ssh-forward.sh $(BINDIR)/pinata-ssh-forward
 	cp pinata-ssh-mount.sh $(BINDIR)/pinata-ssh-mount
+uninstall:
+	@if [ ! -d "$(PREFIX)/share/pinata-ssh-agent" ]; then echo Error: need a $(PREFIX)/share/pinata-ssh-agent directory; exit 1; fi
+	rm -rf $(PREFIX)/share/pinata-ssh-agent
+	rm $(BINDIR)/pinata-build-sshd
+	rm $(BINDIR)/pinata-ssh-forward
+	rm $(BINDIR)/pinata-ssh-mount
